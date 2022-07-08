@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jul  8 10:56:13 2022
+Created on Fri Jul  8 11:09:40 2022
 
-@author: Abhay
+@author: ladae
 """
-# KNN Classifier
+
+# SVM Classifier
 
 # Importing the libraries
 import numpy as np
@@ -12,7 +13,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix
 from matplotlib.colors import ListedColormap
 
@@ -30,7 +31,7 @@ x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
 
 # Training the logistic regression model on the training set
-classifier = KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2)
+classifier = SVC(kernel='linear', random_state=0)
 classifier.fit(x_train, y_train)
 
 # Predecting the test set results
